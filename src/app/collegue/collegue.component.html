@@ -1,0 +1,33 @@
+<div class="container" style="margin-top: 30px;">
+
+  <div class="card w-50">
+    <div class="card-img-top d-flex align-items-center bg-light">
+      <div>
+        <img
+          class="img-fluid"
+          width="150"
+          src="{{ col['photoUrl'] }}"
+          alt="Card image cap"
+        />
+      </div>
+      <p class="col p-2 m-0">
+        Matricule : {{ col["matricule"] }}<br />
+        Nom : {{ col["nom"] }}<br />
+        Prenom : {{ col["prenoms"] }}<br />
+        Date de naissance : {{ col["dateDeNaissance"] }}<br />
+        e-mail : {{ col["email"] }}<br />
+      </p>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ col['nom'] }} {{ col['prenoms'] }}</h5>
+      <a href="#" (click)="creationCollegue()">Créer un nouveau collègue</a>
+      <button type="button" class="btn btn-outline-secondary float-right" (click)="modifier()">
+        Modifier
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -1,19 +1,13 @@
-import {Component} from '@angular/core';
-import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
+import { Collegue } from './model/Collegue';
+import { createCollegue } from './mock/collegues.mock';
 
 @Component({
-  selector: 'ngbd-carousel-navigation',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
+  styleUrls: ['./app.component.css']
 })
-export class NgbdCarouselNavigation {
-  showNavigationArrows = false;
-  showNavigationIndicators = false;
-  images = [1055, 194, 368].map((n) => `https://picsum.photos/id/${n}/900/500`);
-
-  constructor(config: NgbCarouselConfig) {
-    // customize default values of carousels used by this component tree
-    config.showNavigationArrows = true;
-    config.showNavigationIndicators = true;
-  }
+export class AppComponent {
+  title = 'collegues-front';
+  collegues: Collegue[] = createCollegue();
 }

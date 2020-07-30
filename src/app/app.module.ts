@@ -1,18 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { NgbdCarouselNavigation } from './app.component';
+import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CollegueComponent } from './collegue/collegue.component';
 
 @NgModule({
   declarations: [
-    NgbdCarouselNavigation
+    AppComponent,
+    CollegueComponent
   ],
   imports: [
     BrowserModule,
     NgbModule
   ],
   providers: [],
-  bootstrap: [NgbdCarouselNavigation]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
