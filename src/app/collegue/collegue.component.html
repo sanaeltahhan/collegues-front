@@ -5,80 +5,29 @@
     </div>
     <div class="col-sm-5" style="text-align: left;">
       <p>Matricule : {{ col['matricule'] }}<br />
-        Nom : {{ col['nom'] }}<br />
+        Nom : {{ col['nom'] | uppercase }} <br />
         Prenom : {{ col['prenoms'] }}<br />
-        Date de naissance : {{ col['dateDeNaissance'] }}<br />
+        Date de naissance : {{ col['dateDeNaissance'] | date:'dd/MM/yyyy' }}<br />
         e-mail : {{ col['email'] }}<br />
       </p>
-      <a href="#"  (click)="creationCollegue()">Créer un nouveau collègue</a>
-      <button type="button" class="btn btn-outline-secondary float-right" (click)="modifier()">Modifier</button>
-    </div>
-  </div>
-</div>
-
-
-
-<!--<div class="container" style="margin-top: 30px;">
-  <div class="card">
-    <div class="card-img-top d-flex align-items-center bg-light">
-      <div>
-        <img
-          class="img-fluid"
-          width="150"
-          src="{{ col['photoUrl'] }}"
-          alt="Card image cap"
-        />
+      <!--Input for email-->
+      <div class="form-group" [hidden]="elementMasquee">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com">
       </div>
-      <div class="col p-2 m-0">
-        <p>
-          Matricule : {{ col["matricule"] }}<br />
-          Nom : {{ col["nom"] }}<br />
-          Prenom : {{ col["prenoms"] }}<br />
-          Date de naissance : {{ col["dateDeNaissance"] }}<br />
-          e-mail : {{ col["email"] }}<br />
-        </p>
-        <!--Input email
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default"
-              >Default</span
-            >
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </div>
-      </div>
-      <!--Input photo url
-      <div class="input-group mb-3">
+      <!--Input for imageUrl-->
+      <div class="input-group mb-3" [hidden]="elementMasquee">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default"
-            >Default</span
-          >
+          <span class="input-group-text" id="urlphoto">URL photo</span>
         </div>
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Default"
-          aria-describedby="inputGroup-sizing-default"
-        />
+        <input type="text" class="form-control" aria-label="urlphoto" aria-describedby="urlphoto">
       </div>
-    </div>
 
-    <div class="card-body">
-      <h5 class="card-title">{{ col["nom"] }} {{ col["prenoms"] }}</h5>
-      <a href="#" (click)="creationCollegue()">Créer un nouveau collègue</a>
-      <button
-        type="button"
-        class="btn btn-outline-secondary float-right"
-        (click)="modifier()"
-      >
-        Modifier
-      </button>
+      <a href="#"  (click)="creationCollegue()" [hidden]="!elementMasquee">Créer un nouveau collègue</a>
+      <button type="button" class="btn btn-outline-secondary float-right" (click)="modifier()" [hidden]="!elementMasquee">Modifier</button>
+      <button type="button" class="btn btn-outline-secondary float-right" (click)="valider()" [hidden]="elementMasquee">Valider</button>
+
     </div>
   </div>
 </div>
--->
+

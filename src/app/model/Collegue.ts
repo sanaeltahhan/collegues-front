@@ -4,10 +4,10 @@ export class Collegue {
   nom: string;
   prenoms: string;
   email: string;
-  dateDeNaissance: string;
+  dateDeNaissance: Date;
   photoUrl: string;
 
-  constructor(matricule: string, nom: string, prenoms: string, email: string, dateDeNaissance: string, photoUrl: string) {
+  constructor(matricule, nom, prenoms, email, dateDeNaissance, photoUrl) {
     this.matricule = matricule;
     this.nom = nom;
     this.prenoms = prenoms;
