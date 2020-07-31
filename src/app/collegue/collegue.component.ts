@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../model/Collegue';
+import { createCollegue } from '../mock/collegues.mock';
+import { DataService } from '../services/data.service';
+
 
 @Component({
   selector: 'app-collegue',
@@ -10,8 +13,13 @@ import { Collegue } from '../model/Collegue';
 export class CollegueComponent implements OnInit {
 
   @Input()
-  col: CollegueComponent;
-  constructor() { }
+  // Avant data service
+  //col: CollegueComponent;
+  //collegues: Collegue[] = createCollegue();
+  col;
+
+
+  constructor(private dataService : DataService) { }
 
   elementMasquee = true;
 
@@ -29,7 +37,10 @@ export class CollegueComponent implements OnInit {
     this.elementMasquee = !this.elementMasquee;
   }
 
+
+
   ngOnInit(): void {
+    this.col = this.dataService.recupererCollegueCourant();
   }
 
 }
