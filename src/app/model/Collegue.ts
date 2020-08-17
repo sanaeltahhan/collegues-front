@@ -1,6 +1,6 @@
 export class Collegue {
 
-  matricule: string;
+  matricule : string;
   nom: string;
   prenoms: string;
   email: string;
