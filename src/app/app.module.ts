@@ -10,20 +10,40 @@ import { CreerNouveauCollegueComponent } from './creer-nouveau-collegue/creer-no
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+import { MenuComponentComponent } from './menu-component/menu-component.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
+import { Route, RouterModule, Routes } from '@angular/router';
+import { GallerieComponent } from './gallerie/gallerie.component';
+import { AProposComponent } from './apropos/apropos.component';
+
+
+const ROUTES: Routes = [
+  { path: 'accueil', component: AccueilComponent},
+  { path: 'gallerie', component: GallerieComponent},
+  { path: 'apropos', component: AProposComponent},
+  //{ path: 'page3/:identifiant', component: Page3Component},
+  { path: '', pathMatch: 'full', redirectTo: '/acceuil' },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     CollegueComponent,
     RechercheCollegueParNomComponent,
-    CreerNouveauCollegueComponent
+    CreerNouveauCollegueComponent,
+    MenuComponentComponent,
+    AccueilComponent,
+    GallerieComponent,
+    AProposComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES)
+
   ],
   providers: [],
   bootstrap: [AppComponent]
