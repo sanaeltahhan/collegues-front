@@ -1,4 +1,7 @@
+import { ColleguePhoto } from './../model/ColleguePhoto';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+
 
 @Component({
   selector: 'app-gallerie',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GallerieComponent implements OnInit {
 
-  constructor() { }
+  listePhoto: ColleguePhoto [];
+
+  constructor(private dataServ: DataService) { }
 
   ngOnInit(): void {
+    this.dataServ.addListPhotos().subscribe(
+      v => this.listePhoto = v,
+      err => { },
+      () => { }
+    );
+  }
+
+  select2(mat: string): void {
+    this.dataServ.selectionner(mat).subscribe(
+      () => { },
+      err => { }
+    );
   }
 
 }
